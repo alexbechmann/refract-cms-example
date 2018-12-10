@@ -9,4 +9,4 @@ services:
     links:
       - mongo
     environment: 
-      - MONGO_CONNECTION_STRING=mongodb://mongo:27017/ryomtand
+      - MONGO_CONNECTION_STRING=mongodb://mongo:27017/refract-cms-basic-example
