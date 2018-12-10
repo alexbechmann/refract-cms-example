@@ -3,6 +3,6 @@ import { ProductSchema } from './products/product.model';
 import { NewsArticleSchema } from './news/news-article.model';
 import { SettingsSchema } from './settings/settings.model';
 
-export const basicExampleConfig = configure({
+export const config = configure({
   schema: [ProductSchema, NewsArticleSchema, SettingsSchema]
 });

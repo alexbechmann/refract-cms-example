@@ -1,31 +1,31 @@
 import express from 'express';
 import path from 'path';
 import { refractCmsHandler } from '@refract-cms/server';
-import { basicExampleConfig } from '../examples/basic-example/refract.config';
+import { config } from '../refract-cms/refract.config';
 import { Config, configure } from '@refract-cms/core';
 
 const app = express();
 
-const buildOptions = ({ name, config }: { name: string; config: Config }) => ({
-  rootPath: `/cms/${name}`,
-  config,
-  serverConfig: {
-    mongoConnectionString: `mongodb://localhost:27021/refract-cms-${name}`,
-    filesPath: 'files/',
-    auth: {
-      adminCredentials: {
-        username: 'admin',
-        password: 'pw'
-      },
-      jwt: {
-        issuer: 'consumer',
-        secret: 'secret'
+app.use(
+  ...refractCmsHandler({
+    rootPath: `/cms`,
+    config,
+    serverConfig: {
+      mongoConnectionString: `mongodb://localhost:27021/refract-cms-basic-example`,
+      filesPath: 'files/',
+      auth: {
+        adminCredentials: {
+          username: 'admin',
+          password: 'pw'
+        },
+        jwt: {
+          issuer: 'consumer',
+          secret: 'secret'
+        }
       }
     }
-  }
-});
-
-app.use(...refractCmsHandler(buildOptions({ name: 'basic-example', config: basicExampleConfig })));
+  })
+);
 
 app.get('/*', express.static(path.resolve(__dirname, '..', '..', 'dist')));
 

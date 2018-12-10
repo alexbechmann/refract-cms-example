@@ -39,6 +39,11 @@ module.exports = {
         test: /\.(js|jsx|ts|tsx)?$/,
         loader: 'prettier-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        loader: 'graphql-tag/loader'
       }
     ]
   },
@@ -53,6 +58,6 @@ module.exports = {
     // new FriendlyErrorsWebpackPlugin()
   ],
   resolve: {
-    extensions: ['.ts', '.tsx', '.mjs', '.js']
+    extensions: ['.ts', '.tsx', '.mjs', '.js', '.graphql']
   },
 }

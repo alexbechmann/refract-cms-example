@@ -1,0 +1,8 @@
+{
+    products: productGetAll {
+      _id
+      title
+      category
+      types
+    }
+  }
