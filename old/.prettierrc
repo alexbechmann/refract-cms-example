@@ -1,6 +1,5 @@
 bracketSpacing: true
 semi: true
-parser: babylon
 overrides:
 - files: "**/*.ts*"
   options:

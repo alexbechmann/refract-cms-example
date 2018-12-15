@@ -1,10 +1,4 @@
-# Develop
-```
-npm install
-npm start
-```
+Starter project for HMR with backend routes and server/client-side react.
+Clone this repo and run ```npm i``` then ```npm start```
 
-# Run in docker
-```
-docker-compose -f docker-compose.yml -f docker-compose.prod.yml up --build
-```
+based on https://github.com/mhaagens/hot-reload-all-the-things

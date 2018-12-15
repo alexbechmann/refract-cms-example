@@ -5,16 +5,16 @@ services:
     expose: 
       - 27019
     ports:
-      - "27019:27017"
+      - "27021:27017"
     volumes:
       - mongodata:/data/db
-
-  mongoexpress:
-    image: mongo-express
-    ports: 
-      - "7091:8081"
-    links:
-      - mongo
+      
+  # mongoexpress:
+  #   image: mongo-express
+  #   ports: 
+  #     - "6081:8081"
+  #   links:
+  #     - mongo
 
 volumes:
   mongodata:
