@@ -27,10 +27,6 @@ app.use(
   })
 );
 
-app.get('/api', (req, res) => {
-  res.send({ message: 'I am a server route and can also be hot reloaded!4' });
-});
-
 app.get('*', (req, res) => {
   const application = ''; // renderToString(<App />);
 
