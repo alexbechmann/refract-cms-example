@@ -1,9 +1,8 @@
 import express from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-// import App from '../client/App';
 import { refractCmsHandler } from '@refract-cms/server';
-import { config } from '../refract-cms/refract.config';
+import { config } from '../refract-config/refract.config';
 
 const app = express();
 
