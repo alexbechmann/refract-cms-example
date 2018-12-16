@@ -41,7 +41,7 @@ export const NewsArticleSchema = defineEntity<NewsArticle>({
     displayName: 'News Article',
     instanceDisplayProps: newsArticle => ({
       primaryText: newsArticle.title,
-      secondaryText: moment(newsArticle.articleDate).toLocaleString(),
+      secondaryText: moment(newsArticle.articleDate).format('ll'),
       imageUrl: newsArticle.image ? newsArticle.image.imageUrl : undefined
     }),
     icon: DescriptionIcon
