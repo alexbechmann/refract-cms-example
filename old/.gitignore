@@ -1,5 +1,0 @@
-generated/
-files/
-**/node_modules/
-**/*.log
-dist/
