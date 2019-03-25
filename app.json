@@ -1,0 +1,23 @@
+{
+  "name": "Ryomtand",
+  "description": "",
+  "keywords": [
+    "nodejs",
+    "express"
+  ],
+  "env": {
+    "TEST_VAR": "hello"
+  },
+  "dokku": {
+    "plugins": [
+      "mongo"
+    ],
+    "volumes": [
+      {
+        "host": "/var/lib/dokku/data/storage/$APP/files",
+        "app": "/app/files",
+        "phases": "deploy,run"
+      }
+    ]
+  }
+}

@@ -1,40 +1,16 @@
-# razzle-ts-boilerplate
+# Ryomtand
 
-## Quickstart
-```
-git clone https://github.com/alexbechmann/razzle-ts-boilerplate.git my-app
-cd my-app
-yarn 
-yarn start
-```
+## Deployment
+| Environment   | Url           | Build |
+| ------------- |:-------------:| -----:|
+| Integration   | https://ryomtand-integration.herokuapp.com/ | ![Heroku](https://heroku-badge.herokuapp.com/?app=ryomtand-integration) |
 
 ## Develop
-
-### yarn
 ```
 yarn
 yarn start
 ```
 
-or
-
-### docker
-```
-yarn
-docker-compose up --build
-```
-
-## Production
-
-### yarn
-```
-yarn run build
-yarn run start:prod
-```
-
-or 
-
-### docker
-```
-docker-compose -f docker-compose.yml up --remove-orphans --build
-```
+# References
+https://github.com/crisward/dokku-require
+https://github.com/dokku/dokku-mongo
