@@ -1,37 +1,34 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "allowUnreachableCode": false,
-    "noFallthroughCasesInSwitch": true,
-    "allowSyntheticDefaultImports": true,
-    "downlevelIteration": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "jsx": "react",
-    "lib": ["es6", "es2015", "es2017", "dom"],
-    "module": "esnext",
-    "moduleResolution": "node",
     "noImplicitAny": false,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": false,
+    "target": "es6",
+    "lib": [
+      "dom",
+      "es6",
+      "dom.iterable",
+      "scripthost"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "sourceMap": true,
-    "strictNullChecks": true,
-    "strict": true,
-    "pretty": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "target": "es5",
-    "skipLibCheck": true
+    "declaration": true,
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "allowJs": false,
+    "checkJs": false,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "isolatedModules": false
   },
   "exclude": [
-    "old",
     "node_modules",
-    "build",
-    "scripts",
-    "acceptance-tests",
-    "webpack",
-    "jest",
-    "razzle.config.js"
+    "**/*.test.*"
   ],
-  "types": ["typePatches", "node", "webpack-env"]
+  "include": [
+    "./consumer",
+    "./packages"
+  ]
 }

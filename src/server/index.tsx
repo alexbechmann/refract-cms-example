@@ -1,7 +1,9 @@
 import express from 'express';
 import config from '../refract-cms/refract.config';
-import { refractCmsHandler } from '@refract-cms/server';
+import { refractCmsHandler, createPublicSchema, resolveImageProperty } from '@refract-cms/server';
 import 'babel-polyfill';
+import { NewsArticleSchema, NewsArticleEntity, NewsArticleModel } from '../refract-cms';
+import { RefractTypes } from '@refract-cms/core';
 
 let assets: any;
 
@@ -29,7 +31,20 @@ const server = express()
             issuer: 'ryomtand',
             secret: 'TjFggx2`dCjvH$/6'
           }
-        }
+        },
+        publicGraphql: [
+          createPublicSchema<NewsArticleEntity, NewsArticleModel>(NewsArticleSchema, {
+            imageModel: resolveImageProperty(NewsArticleSchema.properties.image, ({ image }) => image),
+            title: {
+              type: RefractTypes.string,
+              resolve: ({ title, extraText }) => `${title} - ${extraText}`
+            },
+            articleText: {
+              type: RefractTypes.string,
+              resolve: ({ articleText }) => articleText
+            }
+          })
+        ]
       }
     })
   )
@@ -37,22 +52,23 @@ const server = express()
     res.send(
       `
 <!doctype html>
-    <html lang="">
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta charSet='utf-8' />
-        <title>Ryomtand</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        ${assets.client.css ? `<link rel="stylesheet" href="${assets.client.css}">` : ''}
-          ${
-            process.env.NODE_ENV === 'production'
-              ? `<script src="${assets.client.js}" defer></script>`
-              : `<script src="${assets.client.js}" defer crossorigin></script>`
-          }
-    </head>
-    <body>
-        <div id="root"></div>
-    </body>
+  <html lang="">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charSet='utf-8' />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+    <title>Ryomtand</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    ${assets.client.css ? `<link rel="stylesheet" href="${assets.client.css}">` : ''}
+      ${
+        process.env.NODE_ENV === 'production'
+          ? `<script src="${assets.client.js}" defer></script>`
+          : `<script src="${assets.client.js}" defer crossorigin></script>`
+      }
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>`
     );
   });
