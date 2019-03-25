@@ -1,19 +1,7 @@
 import express from 'express';
-import React from 'react';
-import { renderToString } from 'react-dom/server';
-import { StaticRouter } from 'react-router-dom';
-import contactRouter from './contact/contact.router';
-import App from '../client/App';
 import config from '../refract-cms/refract.config';
 import { refractCmsHandler } from '@refract-cms/server';
 import 'babel-polyfill';
-import { store } from '../client/state/root.store';
-import { Provider } from 'react-redux';
-import { theme } from '../client/styles/theme';
-
-import { MuiThemeProvider, createMuiTheme, createGenerateClassName } from '@material-ui/core/styles';
-import jss from 'jss';
-import { JssProvider, SheetsRegistry } from 'react-jss';
 
 let assets: any;
 
@@ -45,30 +33,10 @@ const server = express()
       }
     })
   )
-  .use('/api/contact', contactRouter)
   .get('/*', (req: express.Request, res: express.Response) => {
-    const context = {};
-
-    // const sheetsRegistry = new SheetsRegistry();
-    // const generateClassName = createGenerateClassName();
-    // const sheetsManager = new Map();
-    // const markup = renderToString(
-    //   <JssProvider registry={sheetsRegistry} generateClassName={generateClassName}>
-    //     <MuiThemeProvider theme={theme} sheetsManager={sheetsManager}>
-    //       <StaticRouter context={context} location={req.url}>
-    //         <Provider store={store}>
-    //           <App />
-    //         </Provider>
-    //       </StaticRouter>
-    //     </MuiThemeProvider>
-    //   </JssProvider>
-    // );
-    // const css = sheetsRegistry.toString();
-    // console.log({ css });
-    const markup = '';
-    const css = '';
     res.send(
-      `<!doctype html>
+      `
+<!doctype html>
     <html lang="">
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -81,10 +49,9 @@ const server = express()
               ? `<script src="${assets.client.js}" defer></script>`
               : `<script src="${assets.client.js}" defer crossorigin></script>`
           }
-        <style id="jss-server-side">${css}</style>
     </head>
     <body>
-        <div id="root">${markup}</div>
+        <div id="root"></div>
     </body>
 </html>`
     );
