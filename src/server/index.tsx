@@ -24,8 +24,8 @@ const server = express()
         filesPath: process.env.FILES_DIR || 'files/',
         auth: {
           adminCredentials: {
-            username: 'refract',
-            password: 'Sc4JIlX0p5DM'
+            username: 'admin',
+            password: 'password'
           },
           jwt: {
             issuer: 'refract-cms-example-dev',

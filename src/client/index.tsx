@@ -13,6 +13,9 @@ const theme = createMuiTheme({
     primary: {
       main: teal[500]
     }
+  },
+  typography: {
+    useNextVariants: true
   }
 });
 
