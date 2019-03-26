@@ -1,0 +1,41 @@
+queue:
+  name: Hosted VS2017
+  demands: npm
+
+steps:
+- task: geeklearningio.gl-vsts-tasks-yarn.yarn-task.Yarn@2
+  displayName: Yarn install
+  inputs:
+    Arguments: install
+
+- task: geeklearningio.gl-vsts-tasks-yarn.yarn-task.Yarn@2
+  displayName: Yarn run build
+  inputs:
+    Arguments: 'run build'
+
+- task: ArchiveFiles@2
+  displayName: 'Archive'
+  inputs:
+    archiveType: tar
+    rootFolderOrFile: build
+    includeRootFolder: false
+    archiveFile: '$(Build.ArtifactStagingDirectory)/dist.tar.gz'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: "$(Build.ArtifactStagingDirectory)/dist.tar.gz"
+    ArtifactName: "dist"
+    ArtifactType: "Container"
+
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: "$(Build.Repository.LocalPath)/resources"
+    ArtifactName: "Resources"
+    ArtifactType: "Container"
+
+
+
+
+
+

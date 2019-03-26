@@ -1,0 +1,20 @@
+{
+  "name": "refract-cms-example",
+  "description": "",
+  "keywords": [
+    "nodejs",
+    "express"
+  ],
+  "dokku": {
+    "plugins": [
+      "mongo"
+    ],
+    "volumes": [
+      {
+        "host": "/var/lib/dokku/data/storage/$APP/files",
+        "app": "/app/files",
+        "phases": "deploy,run"
+      }
+    ]
+  }
+}

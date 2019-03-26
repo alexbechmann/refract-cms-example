@@ -1,4 +1,17 @@
-Starter project for HMR with backend routes and server/client-side react.
-Clone this repo and run ```npm i``` then ```npm start```
+# Refract-Cms Example
 
-based on https://github.com/mhaagens/hot-reload-all-the-things
+## Deployment
+
+- Dokku
+
+## Develop
+
+```
+yarn
+yarn start
+```
+
+# References
+
+https://github.com/crisward/dokku-require
+https://github.com/dokku/dokku-mongo
