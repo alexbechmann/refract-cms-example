@@ -14,6 +14,7 @@ import {
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { compose } from 'recompose';
+import News from './news/News';
 
 export interface AppProps {}
 
@@ -65,6 +66,12 @@ const App: React.ComponentType<Props> = ({ classes }) => (
         <Typography gutterBottom>
           You can decide to go fully headless and host your frontend elsewhere, using the framework of your choice.
         </Typography>
+        <br />
+        <br />
+        <Typography gutterBottom variant="h5" className={classes.title}>
+          News content from the CMS
+        </Typography>
+        <News />
       </Grid>
     </Grid>
   </>
