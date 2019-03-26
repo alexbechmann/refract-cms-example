@@ -34,7 +34,6 @@ const server = express()
         },
         publicGraphql: [
           createPublicSchema<NewsArticleEntity, NewsArticleModel>(NewsArticleSchema, {
-            ...(NewsArticleSchema.properties as any),
             imageModel: resolveImageProperty(NewsArticleSchema.properties.image, ({ image }) => image),
             title: {
               type: RefractTypes.string,

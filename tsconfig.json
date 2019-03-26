@@ -23,12 +23,4 @@
     "skipDefaultLibCheck": true,
     "isolatedModules": false
   },
-  "exclude": [
-    "node_modules",
-    "**/*.test.*"
-  ],
-  "include": [
-    "./consumer",
-    "./packages"
-  ]
 }

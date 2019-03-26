@@ -1,13 +1,10 @@
 {
-  "name": "Ryomtand",
+  "name": "refract-cms-example",
   "description": "",
   "keywords": [
     "nodejs",
     "express"
   ],
-  "env": {
-    "TEST_VAR": "hello"
-  },
   "dokku": {
     "plugins": [
       "mongo"
