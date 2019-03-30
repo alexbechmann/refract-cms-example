@@ -17,9 +17,9 @@ const server = express()
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR!))
   .use(
     ...refractCmsHandler({
-      rootPath: '/cms',
       config,
       serverConfig: {
+        rootPath: '/cms',
         mongoConnectionString: process.env.MONGO_URL || 'mongodb://localhost:27059/refract-cms-example',
         filesPath: process.env.FILES_DIR || 'files/',
         auth: {
@@ -32,12 +32,12 @@ const server = express()
             secret: 'I4jni8zuRyWC-dev'
           }
         },
-        publicGraphql: [
+        publicGraphql: config => [
           createPublicSchema<NewsArticleEntity, NewsArticleModel>(NewsArticleSchema, {
-            imageModel: resolveImageProperty(NewsArticleSchema.properties.image, ({ image }) => image),
+            imageModel: resolveImageProperty(config.rootPath, NewsArticleSchema.properties.image, ({ image }) => image),
             title: {
               type: RefractTypes.string,
-              resolve: ({ title, extraText }) => `${title} - ${extraText}`
+              resolve: ({ title }) => `${title} - from Refract CMS Example!`
             },
             articleText: {
               type: RefractTypes.string,
