@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { App } from './app';
+import App from './App';
 import { MuiThemeProvider } from '@material-ui/core';
 import { createDashboard } from '@refract-cms/dashboard';
 import config from '../refract-cms/refract.config';
