@@ -30,7 +30,7 @@ export interface NewsArticleModel extends NewsArticleEntity {
   articleType: NewsArticleTypeModel | null;
 }
 
-export const NewsArticleSchema: EntitySchema<NewsArticleEntity, NewsArticleModel> = defineEntity({
+export const NewsArticleSchema = defineEntity<NewsArticleEntity, NewsArticleModel>({
   options: {
     alias: 'newsArticle',
     displayName: 'News Article',
