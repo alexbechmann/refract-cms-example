@@ -60,7 +60,7 @@ const App: React.ComponentType<Props> = ({ classes }) => (
         <Typography gutterBottom>
           This example has client code on the same app as the CMS for convenience, with the content editing dashboard
           avaialable on the
-          <TextLink component={(props: any) => <Link {...props} to="/admin" />}>/admin</TextLink> route.
+          <TextLink href="/admin">/admin</TextLink> route.
         </Typography>
         <Typography gutterBottom>
           You can decide to go fully headless and host your frontend elsewhere, using the framework of your choice.
