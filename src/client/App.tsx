@@ -10,7 +10,10 @@ import {
   Theme,
   createStyles,
   withStyles,
-  Link as TextLink
+  Link as TextLink,
+  TableRow,
+  TableCell,
+  Table
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { compose } from 'recompose';
@@ -30,6 +33,10 @@ const styles = (theme: Theme) =>
       marginBottom: theme.spacing.unit * 3
     },
     title: {
+      marginBottom: theme.spacing.unit * 3
+    },
+    table: {
+      marginTop: theme.spacing.unit * 3,
       marginBottom: theme.spacing.unit * 3
     }
   });
@@ -65,6 +72,24 @@ const App: React.ComponentType<Props> = ({ classes }) => (
         <Typography gutterBottom>
           You can decide to go fully headless and host your frontend elsewhere, using the framework of your choice.
         </Typography>
+
+        <Table className={classes.table}>
+          <TableRow>
+            <TableCell>Username</TableCell>
+            <TableCell>
+              <strong>admin</strong>
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Password</TableCell>
+            <TableCell>
+              <strong>password</strong>
+            </TableCell>
+          </TableRow>
+        </Table>
+        <Button variant="raised" color="secondary" href="/admin/">
+          Go to content dashboard
+        </Button>
       </Grid>
     </Grid>
   </>
