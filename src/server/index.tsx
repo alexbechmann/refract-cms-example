@@ -1,9 +1,10 @@
 import express from 'express';
 import config from '../refract-cms/refract.config';
-import { refractCmsHandler, createPublicSchema, resolveImageProperty } from '@refract-cms/server';
+import { refractCmsHandler, createPublicSchema } from '@refract-cms/server';
 import 'babel-polyfill';
-import { NewsArticleSchema, NewsArticleEntity, NewsArticleModel } from '../refract-cms';
 import { RefractTypes } from '@refract-cms/core';
+import { NewsArticleSchema } from '../refract-cms/news/news-article.schema';
+import { NewsArticleTypeSchema } from '../refract-cms/news/news-article-type.schema';
 
 let assets: any;
 
@@ -17,9 +18,9 @@ const server = express()
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR!))
   .use(
     ...refractCmsHandler({
-      rootPath: '/cms',
-      config,
       serverConfig: {
+        rootPath: '/cms',
+        config,
         mongoConnectionString: process.env.MONGO_URL || 'mongodb://localhost:27059/refract-cms-example',
         filesPath: process.env.FILES_DIR || 'files/',
         auth: {
@@ -32,18 +33,21 @@ const server = express()
             secret: 'I4jni8zuRyWC-dev'
           }
         },
-        publicGraphql: [
-          createPublicSchema<NewsArticleEntity, NewsArticleModel>(NewsArticleSchema, {
-            imageModel: resolveImageProperty(NewsArticleSchema.properties.image, ({ image }) => image),
-            title: {
-              type: RefractTypes.string,
-              resolve: ({ title, extraText }) => `${title} - ${extraText}`
-            },
-            articleText: {
-              type: RefractTypes.string,
-              resolve: ({ articleText }) => articleText
+        publicGraphQL: [
+          createPublicSchema(
+            NewsArticleSchema,
+            ({ resolveImageProperty, schema, resolveReference, resolveReferences }) => {
+              return {
+                ...schema.properties,
+                imageModel: resolveImageProperty('image'),
+                title: {
+                  type: RefractTypes.string,
+                  resolve: ({ title }) => (title ? title.toUpperCase() : '')
+                },
+                articleType: resolveReference(NewsArticleTypeSchema, 'articleTypeId')
+              };
             }
-          })
+          )
         ]
       }
     })

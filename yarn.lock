@@ -516,9 +516,10 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
-"@refract-cms/core@0.5.2-alpha.269":
-  version "0.5.2-alpha.269"
-  resolved "https://registry.yarnpkg.com/@refract-cms/core/-/core-0.5.2-alpha.269.tgz#6f48bfe220d6b2e94bd6d218a0dcc3faacad48a8"
+"@refract-cms/core@0.5.2-alpha.293":
+  version "0.5.2-alpha.293"
+  resolved "https://registry.yarnpkg.com/@refract-cms/core/-/core-0.5.2-alpha.293.tgz#3ce336552491d20049fe905d511d307cd6b83173"
+  integrity sha512-a3TSEHR7V5TVXZ7HiDD7sEPknQFoWjeBEt2tlvJ5WuD2EA7j1gwDXgZykf3aLvombFgR2z6/YjSUYGYQ56eLmA==
   dependencies:
     "@date-io/moment" "^0.0.2"
     "@material-ui/core" "^3.5.1"
@@ -534,14 +535,16 @@
     pluralize "^7.0.0"
     query-string "^6.2.0"
     react "^16.8.4"
+    react-apollo "^2.5.3"
     react-dom "^16.8.4"
     react-easy-crop "^1.6.0"
     react-router "^4.3.1"
     react-router-dom "^4.3.1"
 
-"@refract-cms/dashboard@0.5.2-alpha.269":
-  version "0.5.2-alpha.269"
-  resolved "https://registry.yarnpkg.com/@refract-cms/dashboard/-/dashboard-0.5.2-alpha.269.tgz#0e3c7604993b44807b990ac3c7bef517f2db556a"
+"@refract-cms/dashboard@0.5.2-alpha.293":
+  version "0.5.2-alpha.293"
+  resolved "https://registry.yarnpkg.com/@refract-cms/dashboard/-/dashboard-0.5.2-alpha.293.tgz#862137af382a097981eed80db0f4b9ab51366b90"
+  integrity sha512-UFfILeA6WsZ6Ijy+jtnAKmaQat9FwIKjGf1N14grcdhhIFgtFX32hX/tasHh4/pT0lP8XqkbkiKmtFQMLEVLbg==
   dependencies:
     "@date-io/moment" "^0.0.2"
     "@reach/router" "^1.2.1"
@@ -568,9 +571,10 @@
     redux "^4.0.1"
     typesafe-actions "^2.0.4"
 
-"@refract-cms/server@0.5.2-alpha.269":
-  version "0.5.2-alpha.269"
-  resolved "https://registry.yarnpkg.com/@refract-cms/server/-/server-0.5.2-alpha.269.tgz#26c6504305527863ca0f4037ef6fa0a6a6e0ab88"
+"@refract-cms/server@0.5.2-alpha.293":
+  version "0.5.2-alpha.293"
+  resolved "https://registry.yarnpkg.com/@refract-cms/server/-/server-0.5.2-alpha.293.tgz#ae249db6cc99ee94f4513dbafd1afe3b228fcd7f"
+  integrity sha512-Q1xIPNzXyLKjmnZFUypi4mJYPowueb29ZIGG+sGhXHB1hGM5Nx9zDXTNdjNj5O05eC4GlhLBa1sYkiCm5tOx+w==
   dependencies:
     "@date-io/moment" "^0.0.2"
     "@types/jimp" "^0.2.28"

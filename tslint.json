@@ -39,6 +39,8 @@
     "file-name-casing": [
       true,
       {
+        "index.tsx": "kebab-case",
+        "schema.tsx": "kebab-case",
         ".tsx": "pascal-case",
         ".ts": "kebab-case"
       }

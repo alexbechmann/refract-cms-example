@@ -8,19 +8,38 @@ import {
   createDatePickerEditor,
   createImagePickerEditor,
   createSingleEntityPickerEditor,
-  createMultipleEntityPickerEditor
+  createMultipleEntityPickerEditor,
+  EntitySchema
 } from '@refract-cms/core';
-import { NewsArticleEntity } from './news-article.entity';
 import DescriptionIcon from '@material-ui/icons/Description';
 import moment from 'moment';
+import { ImageModel } from '@refract-cms/server';
+import { NewsArticleTypeModel, NewsArticleTypeSchema } from './news-article-type.schema';
 
-export const NewsArticleSchema = defineEntity<NewsArticleEntity>({
+export interface NewsArticleEntity extends Entity {
+  title: string;
+  articleText: string;
+  articleDate: Date;
+  extraText: string;
+  image: ImageRef<'profile' | 'large'>;
+  articleTypeId: string;
+}
+
+export interface NewsArticleModel extends NewsArticleEntity {
+  imageModel: ImageModel<'profile' | 'large'>;
+  articleType: NewsArticleTypeModel | null;
+}
+
+export const NewsArticleSchema: EntitySchema<NewsArticleEntity, NewsArticleModel> = defineEntity({
   options: {
     alias: 'newsArticle',
     displayName: 'News Article',
-    instanceDisplayProps: newsArticle => ({
+    instanceDisplayProps: (newsArticle, { context }) => ({
       primaryText: newsArticle.title,
-      secondaryText: newsArticle.articleDate ? moment(newsArticle.articleDate).format('ll') : ''
+      secondaryText: newsArticle.articleDate ? moment(newsArticle.articleDate).format('ll') : '',
+      imageUrl: newsArticle.image
+        ? context.fileService.buildImageUrl(newsArticle.image.imageId, newsArticle.image.crops.profile)
+        : undefined
     }),
     icon: DescriptionIcon,
     defaultSort: {
@@ -73,6 +92,11 @@ export const NewsArticleSchema = defineEntity<NewsArticleEntity>({
         profile: RefractTypes.cropShape,
         large: RefractTypes.cropShape
       })
+    },
+    articleTypeId: {
+      displayName: 'Article Type',
+      editorComponent: createSingleEntityPickerEditor({ schema: NewsArticleTypeSchema }),
+      type: RefractTypes.string
     }
   }
 });
