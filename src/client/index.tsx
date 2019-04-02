@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import App from './App';
-import { createMuiTheme } from '@material-ui/core';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import { createDashboard } from '@refract-cms/dashboard';
 import config from '../refract-cms/refract.config';
 import 'babel-polyfill';
@@ -24,12 +24,14 @@ const theme = createMuiTheme({
 
 render(
   <BrowserRouter>
-    <ThemeProvider theme={theme}>
-      <Switch>
-        <Route path="/admin" component={createDashboard({ config, serverUrl: '/cms', homePageUrl: '/' })} />
-        <Route path="/" component={App} />
-      </Switch>
-    </ThemeProvider>
+    <MuiThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <Switch>
+          <Route path="/admin" component={createDashboard({ config, serverUrl: '/cms', homePageUrl: '/' })} />
+          <Route path="/" component={App} />
+        </Switch>
+      </ThemeProvider>
+    </MuiThemeProvider>
   </BrowserRouter>,
   document.getElementById('root')
 );
