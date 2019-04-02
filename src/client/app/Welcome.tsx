@@ -63,7 +63,7 @@ const Welcome: React.ComponentType<Props> = ({ classes }) => (
     <Grid container justify="center">
       <Grid item xs={12} sm={10} md={8} lg={7} className={classes.content}>
         <Typography gutterBottom variant="h4" className={classes.title}>
-          Welcome to the Refract Cms example Welcome
+          Welcome to the Refract Cms example
         </Typography>
         <Typography gutterBottom>
           This example has client code on the same Welcome as the CMS for convenience, with the content editing
