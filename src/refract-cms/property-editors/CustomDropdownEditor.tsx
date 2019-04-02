@@ -1,18 +1,17 @@
 import React from 'react';
 import { PropertyEditorProps } from '@refract-cms/core';
-import { Typography, withStyles, createStyles, Theme, WithStyles } from '@material-ui/core';
+import { Typography, Theme } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
 
-const styles = (theme: Theme) =>
-  createStyles({
-    highlightedText: {
-      color: theme.palette.secondary.main,
-      fontWeight: 500
-    }
-  });
+const useStyles = makeStyles((theme: Theme) => ({
+  highlightedText: {
+    color: theme.palette.secondary.main,
+    fontWeight: 500
+  }
+}));
 
-interface Props extends PropertyEditorProps<number>, WithStyles<typeof styles> {}
-
-const CustomDropdownEditor = ({ value, setValue, classes }: Props) => {
+export default ({ value, setValue }: PropertyEditorProps<number>) => {
+  const classes = useStyles();
   return (
     <div>
       <Typography className={classes.highlightedText} gutterBottom>
@@ -26,5 +25,3 @@ const CustomDropdownEditor = ({ value, setValue, classes }: Props) => {
     </div>
   );
 };
-
-export default withStyles(styles)(CustomDropdownEditor) as React.ComponentType<PropertyEditorProps<number>>;
