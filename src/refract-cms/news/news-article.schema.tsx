@@ -20,7 +20,6 @@ export interface NewsArticleEntity extends Entity {
   title: string;
   articleText: string;
   articleDate: Date;
-  extraText: string;
   image: ImageRef<'profile' | 'large'>;
   articleTypeId: string;
 }
@@ -63,12 +62,6 @@ export const NewsArticleSchema = defineEntity<NewsArticleEntity, NewsArticleMode
         multiline: true
       }),
       defaultValue: '',
-      type: RefractTypes.string
-    },
-    extraText: {
-      displayName: 'Extra text',
-      // Example of a basic custom editor component
-      editorComponent: props => <input value={props.value} onChange={e => props.setValue(e.target.value)} />,
       type: RefractTypes.string
     },
     articleDate: {

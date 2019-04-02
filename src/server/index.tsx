@@ -5,6 +5,7 @@ import 'babel-polyfill';
 import { RefractTypes } from '@refract-cms/core';
 import { NewsArticleSchema } from '../refract-cms/news/news-article.schema';
 import { NewsArticleTypeSchema } from '../refract-cms/news/news-article-type.schema';
+import { SettingsSchema } from '../refract-cms/settings/settings.schema';
 
 let assets: any;
 
@@ -34,20 +35,23 @@ const server = express()
           }
         },
         publicGraphQL: [
-          createPublicSchema(
-            NewsArticleSchema,
-            ({ resolveImageProperty, schema, resolveReference, resolveReferences }) => {
-              return {
-                ...schema.properties,
-                imageModel: resolveImageProperty('image'),
-                title: {
-                  type: RefractTypes.string,
-                  resolve: ({ title }) => (title ? title.toUpperCase() : '')
-                },
-                articleType: resolveReference(NewsArticleTypeSchema, 'articleTypeId')
-              };
-            }
-          )
+          createPublicSchema(NewsArticleSchema, ({ resolveImageProperty, schema, resolveReference }) => {
+            return {
+              ...schema.properties,
+              imageModel: resolveImageProperty('image'),
+              title: {
+                type: RefractTypes.string,
+                resolve: ({ title }) => (title ? title.toUpperCase() : '')
+              },
+              articleType: resolveReference(NewsArticleTypeSchema, 'articleTypeId')
+            };
+          }),
+          createPublicSchema(SettingsSchema, ({ schema, resolveReferences }) => {
+            return {
+              ...schema.properties,
+              highlightedArticles: resolveReferences(NewsArticleSchema, 'highlightedArticleIds')
+            };
+          })
         ]
       }
     })

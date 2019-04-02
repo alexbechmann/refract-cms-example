@@ -516,10 +516,10 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
-"@refract-cms/core@0.5.2-alpha.293":
-  version "0.5.2-alpha.293"
-  resolved "https://registry.yarnpkg.com/@refract-cms/core/-/core-0.5.2-alpha.293.tgz#3ce336552491d20049fe905d511d307cd6b83173"
-  integrity sha512-a3TSEHR7V5TVXZ7HiDD7sEPknQFoWjeBEt2tlvJ5WuD2EA7j1gwDXgZykf3aLvombFgR2z6/YjSUYGYQ56eLmA==
+"@refract-cms/core@0.5.2-alpha.297":
+  version "0.5.2-alpha.297"
+  resolved "https://registry.yarnpkg.com/@refract-cms/core/-/core-0.5.2-alpha.297.tgz#33a45d98f494d6d52a4b9328f77dc6f0f29dd590"
+  integrity sha512-thZ6ie+YJJM2U8hf6gY3JzGer4t9mmv0ntX5B20VapEQaaLQCWAfzcPoFuUI7VEFTijtNJcXn2eYokl0VXGisg==
   dependencies:
     "@date-io/moment" "^0.0.2"
     "@material-ui/core" "^3.5.1"
@@ -541,10 +541,10 @@
     react-router "^4.3.1"
     react-router-dom "^4.3.1"
 
-"@refract-cms/dashboard@0.5.2-alpha.293":
-  version "0.5.2-alpha.293"
-  resolved "https://registry.yarnpkg.com/@refract-cms/dashboard/-/dashboard-0.5.2-alpha.293.tgz#862137af382a097981eed80db0f4b9ab51366b90"
-  integrity sha512-UFfILeA6WsZ6Ijy+jtnAKmaQat9FwIKjGf1N14grcdhhIFgtFX32hX/tasHh4/pT0lP8XqkbkiKmtFQMLEVLbg==
+"@refract-cms/dashboard@0.5.2-alpha.297":
+  version "0.5.2-alpha.297"
+  resolved "https://registry.yarnpkg.com/@refract-cms/dashboard/-/dashboard-0.5.2-alpha.297.tgz#e435c5ba12d66f98cd13b1c409f9e7be8d007a89"
+  integrity sha512-GHLtBLzKnWFDq/Q1YEGGCJfDPKXbrrFYjwLYtsGAMVtGAP4VW4yk41IXj4/4j+NO6n8stAdQfpAtnCJjzrTt1Q==
   dependencies:
     "@date-io/moment" "^0.0.2"
     "@reach/router" "^1.2.1"
@@ -571,10 +571,10 @@
     redux "^4.0.1"
     typesafe-actions "^2.0.4"
 
-"@refract-cms/server@0.5.2-alpha.293":
-  version "0.5.2-alpha.293"
-  resolved "https://registry.yarnpkg.com/@refract-cms/server/-/server-0.5.2-alpha.293.tgz#ae249db6cc99ee94f4513dbafd1afe3b228fcd7f"
-  integrity sha512-Q1xIPNzXyLKjmnZFUypi4mJYPowueb29ZIGG+sGhXHB1hGM5Nx9zDXTNdjNj5O05eC4GlhLBa1sYkiCm5tOx+w==
+"@refract-cms/server@0.5.2-alpha.297":
+  version "0.5.2-alpha.297"
+  resolved "https://registry.yarnpkg.com/@refract-cms/server/-/server-0.5.2-alpha.297.tgz#1ea87a5fcd491102d5131718bbd71bc8d3788957"
+  integrity sha512-qRD7/N3vYwYmBYOya2/++D/xnq+BmEaojBZo7daCQSlH2VLhuCHf7756hAxJvdbPI6cAz2sFRD0hiB8D9sub1g==
   dependencies:
     "@date-io/moment" "^0.0.2"
     "@types/jimp" "^0.2.28"

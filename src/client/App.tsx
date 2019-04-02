@@ -46,7 +46,7 @@ const App: React.ComponentType<Props> = ({ classes }) => (
           </Link>
         </Typography>
         <div className={classes.grow} />
-        <Button color="inherit" component={(props: any) => <Link {...props} to="/admin" />}>
+        <Button color="inherit" href="/admin/">
           Go to content dashboard
         </Button>
       </Toolbar>

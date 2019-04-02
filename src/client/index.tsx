@@ -23,7 +23,7 @@ render(
   <BrowserRouter>
     <MuiThemeProvider theme={theme}>
       <Switch>
-        <Route path="/admin" component={createDashboard({ config, serverUrl: '/cms' })} />
+        <Route path="/admin" component={createDashboard({ config, serverUrl: '/cms', homePageUrl: '/' })} />
         <Route path="/" component={App} />
       </Switch>
     </MuiThemeProvider>
