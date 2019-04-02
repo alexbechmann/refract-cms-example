@@ -17,8 +17,9 @@ import {
 } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { compose } from 'recompose';
+import News from './News';
 
-export interface AppProps {}
+export interface WelcomeProps {}
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -41,9 +42,9 @@ const styles = (theme: Theme) =>
     }
   });
 
-interface Props extends AppProps, WithStyles<typeof styles> {}
+interface Props extends WelcomeProps, WithStyles<typeof styles> {}
 
-const App: React.ComponentType<Props> = ({ classes }) => (
+const Welcome: React.ComponentType<Props> = ({ classes }) => (
   <>
     <AppBar position="sticky" className={classes.appBar}>
       <Toolbar>
@@ -62,11 +63,11 @@ const App: React.ComponentType<Props> = ({ classes }) => (
     <Grid container justify="center">
       <Grid item xs={12} sm={10} md={8} lg={7} className={classes.content}>
         <Typography gutterBottom variant="h4" className={classes.title}>
-          Welcome to the Refract Cms example app
+          Welcome to the Refract Cms example Welcome
         </Typography>
         <Typography gutterBottom>
-          This example has client code on the same app as the CMS for convenience, with the content editing dashboard
-          avaialable on the
+          This example has client code on the same Welcome as the CMS for convenience, with the content editing
+          dashboard avaialable on the
           <TextLink href="/admin">/admin</TextLink> route.
         </Typography>
         <Typography gutterBottom>
@@ -87,12 +88,13 @@ const App: React.ComponentType<Props> = ({ classes }) => (
             </TableCell>
           </TableRow>
         </Table>
-        <Button variant="raised" color="secondary" href="/admin/">
+        {/* <Button variant="raised" color="secondary" href="/admin/">
           Go to content dashboard
-        </Button>
+        </Button> */}
+        <News />
       </Grid>
     </Grid>
   </>
 );
 
-export default compose(withStyles(styles))(App) as React.ComponentType<AppProps>;
+export default compose(withStyles(styles))(Welcome) as React.ComponentType<WelcomeProps>;

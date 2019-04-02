@@ -41,7 +41,7 @@ const server = express()
               imageModel: resolveImageProperty('image'),
               title: {
                 type: RefractTypes.string,
-                resolve: ({ title }) => (title ? title.toUpperCase() : '')
+                resolve: ({ title, _id }) => `${title} (${_id})`
               },
               articleType: resolveReference(NewsArticleTypeSchema, 'articleTypeId')
             };
