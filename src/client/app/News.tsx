@@ -59,33 +59,10 @@ const News: React.ComponentType<Props> = ({ data, classes }) => {
           </ListItem>
         ))}
       </List>
-      {/* <Grid container spacing={16}>
-        {data.newsArticles.map(article => {
-          return (
-            <Grid item xs={12} sm={6} md={6} key={article._id}>
-              <Card className={classes.card}>
-                <CardHeader />
-                {article.imageModel && article.imageModel.crops ? (
-                  <CardMedia className={classes.media} image={article.imageModel.crops.large} />
-                ) : (
-                  <div className={classes.media} />
-                )}
-                <CardContent>
-                  <Typography>{article.articleText}</Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          );
-        })}
-      </Grid> */}
       <br />
     </div>
   ) : (
-    <Button
-      color="secondary"
-      variant="raised"
-      component={(props: any) => <Link {...props} to="/admin/content/newsArticle" />}
-    >
+    <Button color="secondary" variant="raised" href="/admin">
       Click to add some content
     </Button>
   );
