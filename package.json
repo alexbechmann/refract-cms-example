@@ -19,7 +19,6 @@
     "@refract-cms/core": "0.5.2-alpha.302",
     "@refract-cms/dashboard": "0.5.2-alpha.302",
     "@refract-cms/server": "0.5.2-alpha.302",
-    "@types/googlemaps": "^3.30.16",
     "@types/react-jss": "^8.6.0",
     "apollo-client": "^2.4.8",
     "babel-polyfill": "^6.26.0",
