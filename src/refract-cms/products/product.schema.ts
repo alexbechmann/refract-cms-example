@@ -6,10 +6,12 @@ import {
   createSingleDropdownEditor,
   createMultipleDropdownEditor,
   Entity,
-  Location
+  Location,
+  createMultipleEntityPickerEditor
 } from '@refract-cms/core';
 import CustomDropdownEditor from '../property-editors/CustomDropdownEditor';
 import ScatterPlotIcon from '@material-ui/icons/ScatterPlot';
+import { ProductCategoryModel, ProductCategorySchema } from './product-category.schema';
 
 export interface ProductEntity extends Entity {
   customNumber: number;
@@ -17,10 +19,11 @@ export interface ProductEntity extends Entity {
   title: string;
   category: string;
   types: string[];
+  productCategoryIds: string[];
 }
 
 export interface ProductModel extends ProductEntity {
-  someVar: string;
+  productCategories: ProductCategoryModel[];
 }
 
 export const ProductSchema = defineEntity<ProductEntity, ProductModel>({
@@ -34,6 +37,13 @@ export const ProductSchema = defineEntity<ProductEntity, ProductModel>({
     icon: ScatterPlotIcon
   },
   properties: {
+    productCategoryIds: {
+      displayName: 'Product categories',
+      editorComponent: createMultipleEntityPickerEditor({
+        schema: ProductCategorySchema
+      }),
+      type: RefractTypes.arrayOf(RefractTypes.string)
+    },
     title: {
       displayName: 'Title',
       editorComponent: createTextEditor({
