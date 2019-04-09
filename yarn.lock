@@ -544,6 +544,7 @@
 "@refract-cms/core@0.5.2-alpha.302":
   version "0.5.2-alpha.302"
   resolved "https://registry.yarnpkg.com/@refract-cms/core/-/core-0.5.2-alpha.302.tgz#48ea82bc5193b0806705f57f191b919daffd8b41"
+  integrity sha512-sKm+HRMKTyTMc7eW2TZXAoO/5ZgXJUgs53lUYwGdKlmD+F6KdE+E6zk2BOV1yElcGSWi5H7JEcz/fS7XJLuP4g==
   dependencies:
     "@date-io/moment" "^0.0.2"
     "@material-ui/core" "^3.5.1"
@@ -568,6 +569,7 @@
 "@refract-cms/dashboard@0.5.2-alpha.302":
   version "0.5.2-alpha.302"
   resolved "https://registry.yarnpkg.com/@refract-cms/dashboard/-/dashboard-0.5.2-alpha.302.tgz#576f3004ec9fa3f96fc5c00b794a96efbc807d32"
+  integrity sha512-gPXkDoxHu2Z9bJW/Zq25/94mFYpp/whPB+2RipJtENPo/j7jcSrOJZrPeDc5LR65HMr7fsYv+UsDOoL0dSG5xw==
   dependencies:
     "@date-io/moment" "^0.0.2"
     "@reach/router" "^1.2.1"
@@ -597,6 +599,7 @@
 "@refract-cms/server@0.5.2-alpha.302":
   version "0.5.2-alpha.302"
   resolved "https://registry.yarnpkg.com/@refract-cms/server/-/server-0.5.2-alpha.302.tgz#603aaa20e3db805ec5b7ed10c32960925f3813da"
+  integrity sha512-/yKxjr0qzDCNtJkX8aHSEyn+faauBdeXAC6lWP+kj9IURBlw04whh8kOyipwsHtuwKxBLnjfbDI66Z0ZzAySdg==
   dependencies:
     "@date-io/moment" "^0.0.2"
     "@types/jimp" "^0.2.28"
@@ -4555,10 +4558,12 @@ graphql-compose@^5.3.4:
 graphql-playground-html@1.6.12:
   version "1.6.12"
   resolved "https://registry.yarnpkg.com/graphql-playground-html/-/graphql-playground-html-1.6.12.tgz#8b3b34ab6013e2c877f0ceaae478fafc8ca91b85"
+  integrity sha512-yOYFwwSMBL0MwufeL8bkrNDgRE7eF/kTHiwrqn9FiR9KLcNIl1xw9l9a+6yIRZM56JReQOHpbQFXTZn1IuSKRg==
 
 graphql-playground-middleware-express@^1.7.12:
   version "1.7.12"
   resolved "https://registry.yarnpkg.com/graphql-playground-middleware-express/-/graphql-playground-middleware-express-1.7.12.tgz#de4b2402a02159b2125561fe38eb378b56cf6d99"
+  integrity sha512-17szgonnVSxWVrgblLRHHLjWnMUONfkULIwSunaMvYx8k5oG3yL86cyGCbHuDFUFkyr2swLhdfYl4mDfDXuvOA==
   dependencies:
     graphql-playground-html "1.6.12"
 

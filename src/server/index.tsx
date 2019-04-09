@@ -6,6 +6,8 @@ import { RefractTypes } from '@refract-cms/core';
 import { NewsArticleSchema } from '../refract-cms/news/news-article.schema';
 import { NewsArticleTypeSchema } from '../refract-cms/news/news-article-type.schema';
 import { SettingsSchema } from '../refract-cms/settings/settings.schema';
+import { ProductSchema } from '../refract-cms/products/product.schema';
+import { ProductCategorySchema } from '../refract-cms/products/product-category.schema';
 
 let assets: any;
 
@@ -50,6 +52,12 @@ const server = express()
             return {
               ...schema.properties,
               highlightedArticles: resolveReferences(NewsArticleSchema, 'highlightedArticleIds')
+            };
+          }),
+          createPublicSchema(ProductSchema, ({ resolveReferences, schema }) => {
+            return {
+              ...schema.properties,
+              productCategories: resolveReferences(ProductCategorySchema, 'productCategoryIds')
             };
           })
         ]
